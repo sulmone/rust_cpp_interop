@@ -1,0 +1,7 @@
+load("@rules_rust//rust:defs.bzl", "rust_static_library")
+
+rust_static_library(
+    name = "rust_lib",
+    srcs = glob(["src/**/*.rs"]),
+    visibility = ["//visibility:public"],
+)

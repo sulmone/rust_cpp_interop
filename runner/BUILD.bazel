@@ -1,0 +1,16 @@
+load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake")
+
+cmake(
+   name = "fmt",
+   cache_entries = {
+       #"EXAMPLE_KEY": "EXAMPLE_VALUE",
+   },
+   lib_source = "@fmt//:all_srcs",
+   out_static_libs = ["libfmt.a"],
+)
+
+cc_binary(
+  name = "runner",
+  srcs = ["main.cpp"],
+  deps = [":fmt", "//rust_lib:rust_lib"],
+)
