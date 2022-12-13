@@ -1,3 +1,5 @@
+use tokio::runtime::Runtime;
+
 #[no_mangle]
 pub extern "C" fn get_sum(x: i32, y: i32) -> i32 {
     x + y
@@ -8,11 +10,14 @@ pub fn add(left: usize, right: usize) -> usize {
 }
 
 #[no_mangle]
-pub async fn get_http() {
-    let response = reqwest::get("https://httpbin.org/ip")
-        .await.expect("Can't get ip");
+pub extern fn get_http() {
+    let rt = Runtime::new().unwrap();
 
-    let ip = response.text().await.expect("Can't get IP");
+    // let response = reqwest::get("https://httpbin.org/ip")
+    //     .await.expect("Can't get ip");
+
+    // let ip = response.text().await.expect("Can't get IP");
+    let ip = "1.1.1.1";
 
     println!("IP: {}", ip);
 }
