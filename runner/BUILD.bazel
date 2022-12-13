@@ -1,12 +1,16 @@
 load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake")
 
 cmake(
-   name = "fmt",
-   cache_entries = {
-       #"EXAMPLE_KEY": "EXAMPLE_VALUE",
-   },
-   lib_source = "@fmt//:all_srcs",
-   out_static_libs = ["libfmt.a"],
+  name = "fmt",
+  cache_entries = {
+    "CMAKE_BUILD_TYPE" : "Release",
+      #"EXAMPLE_KEY": "EXAMPLE_VALUE",
+  },
+  generate_args = [
+    "-G Ninja"
+  ],
+  lib_source = "@fmt//:all_srcs",
+  out_static_libs = ["libfmt.a"],
 )
 
 cc_binary(
