@@ -2,6 +2,7 @@
 
 extern "C" {
     int get_sum(int x, int y);
+    void get_http();
 }
 
 int main()
@@ -11,5 +12,7 @@ int main()
     int x = 15;
     int y = 27;
     fmt::print("In rust, {} + {} = {}\n", x, y, get_sum(x, y));
+
+
     return 0;
 }
