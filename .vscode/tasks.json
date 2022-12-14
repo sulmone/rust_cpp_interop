@@ -11,6 +11,16 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "Refresh compiler commands",
+            "type": "shell",
+            "command": "bazel run @hedron_compile_commands//:refresh_all"
+        },
+        {
+            "label": "Repin cargo dependencies",
+            "type": "shell",
+            "command": "CARGO_BAZEL_REPIN=1 bazel sync --only=crate_index"
         }
     ]
 }

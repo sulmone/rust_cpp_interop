@@ -9,17 +9,18 @@ pub fn add(left: usize, right: usize) -> usize {
     left + right
 }
 
+async fn get_http_async(s: &str) -> String {
+    reqwest::get(s).await.unwrap().text().await.unwrap()
+}
+
 #[no_mangle]
 pub extern fn get_http() {
     let rt = Runtime::new().unwrap();
 
-    // let response = reqwest::get("https://httpbin.org/ip")
-    //     .await.expect("Can't get ip");
-
-    // let ip = response.text().await.expect("Can't get IP");
-    let ip = "1.1.1.1";
-
-    println!("IP: {}", ip);
+    rt.block_on(async {
+        let resp = get_http_async("https://httpbin.org/ip").await;
+        println!("Response is:\n{}\n", resp);
+    });
 }
 
 #[cfg(test)]
