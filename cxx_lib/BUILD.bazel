@@ -1,0 +1,24 @@
+load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake")
+
+package(default_visibility = ["//visibility:public"])
+
+cmake(
+  name = "fmt",
+  cache_entries = {
+    "CMAKE_BUILD_TYPE" : "Release",
+    "CMAKE_POSITION_INDEPENDENT_CODE" : "ON",
+      #"EXAMPLE_KEY": "EXAMPLE_VALUE",
+  },
+  generate_args = [
+    "-G Ninja"
+  ],
+  lib_source = "@fmt//:all_srcs",
+  out_static_libs = ["libfmt.a"],
+)
+
+cc_library(
+  name = "cxx_lib",
+  srcs = ["main.cpp"],
+  deps = [":fmt", "//rust_lib:rust_lib"],
+  linkstatic = True
+)

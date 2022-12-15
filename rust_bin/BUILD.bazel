@@ -7,5 +7,5 @@ rust_binary(
     name = "rust_bin",
     srcs = glob(["src/**/*.rs"]),
     aliases = aliases(),
-    deps = ["//runner"] + all_crate_deps(),
+    deps = ["//cxx_lib:cxx_lib", "//rust_lib:rust_lib"] + all_crate_deps(),
 )
