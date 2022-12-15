@@ -36,6 +36,7 @@ crates_repository(
     manifests = [
         "//:Cargo.toml",
         "//rust_lib:Cargo.toml",
+        "//rust_bin:Cargo.toml",
     ],
 )
 

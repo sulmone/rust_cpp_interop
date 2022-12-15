@@ -5,7 +5,7 @@ extern "C" {
     void get_http();
 }
 
-int main()
+extern "C" int app_main(int argc, char *argv[])
 {
     fmt::print("Hello {}!\n", "new world");
 

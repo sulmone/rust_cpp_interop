@@ -1,5 +1,7 @@
 load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake")
 
+package(default_visibility = ["//visibility:public"])
+
 cmake(
   name = "fmt",
   cache_entries = {
@@ -13,8 +15,9 @@ cmake(
   out_static_libs = ["libfmt.a"],
 )
 
-cc_binary(
+cc_library(
   name = "runner",
   srcs = ["main.cpp"],
   deps = [":fmt", "//rust_lib:rust_lib"],
+  linkstatic = True
 )

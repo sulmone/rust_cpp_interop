@@ -1,5 +1,5 @@
 {
-  "checksum": "6982503a4c9c61540de7f7bbff82c778534e56b5fec0d18626abd555eb80ed4d",
+  "checksum": "2d1a3c8aef554a2609986609e1907e1b573e42286bced64eda4254ae95ac2dd1",
   "crates": {
     "autocfg 1.1.0": {
       "name": "autocfg",
@@ -180,13 +180,13 @@
       },
       "license": "MIT"
     },
-    "cc 1.0.77": {
+    "cc 1.0.78": {
       "name": "cc",
-      "version": "1.0.77",
+      "version": "1.0.78",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/cc/1.0.77/download",
-          "sha256": "e9f73505338f7d905b19d18738976aae232eb46b8efc15554ffc56deb5d9ebe4"
+          "url": "https://crates.io/api/v1/crates/cc/1.0.78/download",
+          "sha256": "a20104e2335ce8a659d6dd92a51a767a0c062599c73b343fd152cb401e828c3d"
         }
       },
       "targets": [
@@ -221,7 +221,7 @@
           "**"
         ],
         "edition": "2018",
-        "version": "1.0.77"
+        "version": "1.0.78"
       },
       "license": "MIT OR Apache-2.0"
     },
@@ -2583,7 +2583,7 @@
               "target": "autocfg"
             },
             {
-              "id": "cc 1.0.77",
+              "id": "cc 1.0.78",
               "target": "cc"
             },
             {
@@ -3264,6 +3264,34 @@
         "version": "0.11.13"
       },
       "license": "MIT/Apache-2.0"
+    },
+    "rust_bin 0.1.0": {
+      "name": "rust_bin",
+      "version": "0.1.0",
+      "repository": null,
+      "targets": [
+        {
+          "Binary": {
+            "crate_name": "rust_bin",
+            "crate_root": "src/main.rs",
+            "srcs": {
+              "include": [
+                "**/*.rs"
+              ],
+              "exclude": []
+            }
+          }
+        }
+      ],
+      "library_target_name": null,
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "edition": "2021",
+        "version": "0.1.0"
+      },
+      "license": null
     },
     "rust_lib 0.1.0": {
       "name": "rust_lib",
@@ -6566,9 +6594,10 @@
     }
   },
   "binary_crates": [
-    "cc 1.0.77"
+    "cc 1.0.78"
   ],
   "workspace_members": {
+    "rust_bin 0.1.0": "rust_bin",
     "rust_lib 0.1.0": "rust_lib"
   },
   "conditions": {
